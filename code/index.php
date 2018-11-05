@@ -11,12 +11,11 @@
 <h1>Great Test!</h1>
 <?php
     include_once 'api/config/database.php';
-    phpinfo();
     $database = new Database();
     $db = $database->getConnection();
-    if($db != null) {
-        echo "Success is great!\r\n";
-    }
+
+    $listdbtables = array_column(mysqli_fetch_all($db->query('SHOW TABLES FROM business_db')),0);
+    var_dump($listdbtables);
 ?>
 </body>
 </html>

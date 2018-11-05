@@ -13,16 +13,15 @@ class Database{
  
         $this->conn = null;
  
-            //$this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
-            //$this->conn = new mysqli($host, $username, $password);
-            $this->conn = mysqli_connect($host, $username, $password);
+            $this->conn = new mysqli($this->host, $this->username, $this->password, $this->db_name);
 
             if ($this->conn->connect_error) {
                 die("Connection failed:" . $this->conn->connect_error);
             }
-            echo "connect success";
  
         return $this->conn;
     }
+
+
 }
 ?>

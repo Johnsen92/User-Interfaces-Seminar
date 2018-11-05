@@ -11,7 +11,8 @@ services:
     depends_on:
       - php
   php:
-    build: .
+    build:
+      context: ./docker/php/. 
     volumes:
       - ./code:/code
       - ./docker/php/www.conf:/usr/local/etc/php-fpm.d/www.conf
