@@ -31,7 +31,7 @@ Create a new static [build](https://cli.vuejs.org/guide/cli-service.html#vue-cli
 
 !!!Take care, this will remove all the contents from the build directory, specified in `vue.config.js`!!!
 
-`npm run build` or `vue-cli-service build --mode development`
+`npm run build` or `vue-cli-service build --mode development` or (best) `npx vue-cli-service build --mode development --watch`
 
 ## Useful misc
 Reload nginx config:
