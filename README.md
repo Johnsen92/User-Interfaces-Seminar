@@ -25,3 +25,14 @@ Recreate the database volumes by removing the old container and its datadir:
 
 Force docker to recreate images after a change to `docker-compose.yaml`:
 `docker-compose up --force-recreate`
+
+## Useful commands for vue cli
+Create a new static [build](https://cli.vuejs.org/guide/cli-service.html#vue-cli-service-serve):
+
+!!!Take care, this will remove all the contents from the build directory, specified in `vue.config.js`!!!
+
+`npm run build` or `vue-cli-service build --mode development`
+
+## Useful misc
+Reload nginx config:
+`service nginx reload`
