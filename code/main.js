@@ -3,6 +3,7 @@ const app = new Vue({
     data: {
         newDevice: {Location: null, UserID: null},
         devices: [],
+        message: [] 
     },
     methods: {
         createDevice(newDevice) {
@@ -13,7 +14,15 @@ const app = new Vue({
                         "Content-Type": "application/json",
                     },
                     })
-                    .then(() => {
+                    .then(response => response.json())
+                    .then((data) => {
+                        if (data.message.localeCompare("Product was created.") == 0) {
+                            this.devices.push(newDevice); //This updates the displayed list with the pushed value
+                            newDevice.UserID = '';
+                            newDevice.Location = '';
+                        } else {
+                            alert(data.message);
+                        }
                     })
                     }
     },
@@ -26,7 +35,7 @@ const app = new Vue({
     },
     template: `
     <div>
-      <li v-for="device in devices">
+      <li v-for="device in devices" :key="device">
         {{device.DeviceID}} - {{device.Location}} - {{device.UserID}}
       </li>
         <input v-on:keyup.13="createDevice(newDevice.Location)" v-model="newDevice.Location" placeholder="Location"/>

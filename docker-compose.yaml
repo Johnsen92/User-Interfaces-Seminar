@@ -7,9 +7,11 @@ services:
       - "8080:80"
     volumes:
       - ./code:/code
+      - ./vue-dev/vuetify-test/dist:/code/
       - ./site.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - php
+    container_name: vue-web
   php:
     build:
       context: ./docker/php/. 

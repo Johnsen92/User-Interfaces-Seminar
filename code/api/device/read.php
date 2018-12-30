@@ -32,7 +32,7 @@ if($count > 0){
 
         array_push($devices["body"], $p);
     }
-
+  
     echo json_encode($devices);
 }
 
