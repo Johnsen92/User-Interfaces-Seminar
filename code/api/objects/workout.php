@@ -5,7 +5,7 @@ class Workout {
     private $connection;
 
     // table name
-    private $table_name = "Workoutlog";
+    private $table_name = "workoutlog";
 
     // table columns
     public $WorkoutID;
@@ -17,6 +17,8 @@ class Workout {
     public $RPE;
     public $Timestamp;
 
+    public $errorMessage = "Empty";
+
     public function __construct($connection){
         $this->connection = $connection;
     }
@@ -26,13 +28,18 @@ class Workout {
         //$query = "INSERT INTO " . $this->table_name . "(Location, UserID) VALUES (" . $this->Location . " " . $this->UserID . ")";
         $query = "INSERT INTO " . $this->table_name . "(UserID, SessionID, ExerciseID, Reps, Weight, RPE, Timestamp) VALUES (?, ?, ?, ?, ? ,?, ?)";
         $stmt = $this->connection->prepare($query);
+        $this->errorMessage = $this->connection->errno;
         if ($stmt == false) {
             die(PHP_EOL."error");
         }
+        $this->errorMessage = $this->connection->errno;
 
-        $stmt->bind_param("iiiiiis", $this->UserID, $this->SessionID, $this->ExerciseID, $this->Reps, $this->Weight, $this->RPE, $this->Timestamp);
-
-        return $stmt->execute();
+        $stmt->bind_param("iiiidii", $this->UserID, $this->SessionID, $this->ExerciseID, $this->Reps, $this->Weight, $this->RPE, $this->Timestamp);
+        $this->errorMessage = $this->connection->errno;
+        
+        $return = $stmt->execute();
+        $this->errorMessage = $stmt->errno;
+        return $return; 
         
     }
     //R

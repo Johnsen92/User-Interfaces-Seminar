@@ -1,16 +1,17 @@
 <?php
-class Device{
+class Exercise{
 
     // Connection instance
     private $connection;
 
     // table name
-    private $table_name = "device";
+    private $table_name = "exercise";
 
     // table columns
-    public $DeviceID;
-    public $Location;
+    public $ExerciseID;
     public $UserID;
+    public $ExerciseName;
+    public $ExerciseType;
 
     public function __construct($connection){
         $this->connection = $connection;
@@ -19,15 +20,15 @@ class Device{
     //C
     public function create(){
         //$query = "INSERT INTO " . $this->table_name . "(Location, UserID) VALUES (" . $this->Location . " " . $this->UserID . ")";
-        $query = "INSERT INTO " . $this->table_name . " (Location, UserID) VALUES (?, ?)";
-        $stmt = $this->connection->prepare($query);
-        if ($stmt == false) {
-            die(PHP_EOL."error");
-        }
+        //$query = "INSERT INTO " . $this->table_name . " (Location, UserID) VALUES (?, ?)";
+        //$stmt = $this->connection->prepare($query);
+        //if ($stmt == false) {
+        //    die(PHP_EOL."error");
+        //}
 
-        $stmt->bind_param("si", $this->Location, $this->UserID);
+        //$stmt->bind_param("si", $this->Location, $this->UserID);
 
-        return $stmt->execute();
+        //return $stmt->execute();
         
     }
     //R
