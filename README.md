@@ -36,3 +36,18 @@ Create a new static [build](https://cli.vuejs.org/guide/cli-service.html#vue-cli
 ## Useful misc
 Reload nginx config:
 `service nginx reload`
+
+Check out your .zshrc / .bashrc for docker autocompletion:
+
+```
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit -i
+```
+
+And for Node.js
+
+```
+export NVM_DIR="/home/consti/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+```
+
