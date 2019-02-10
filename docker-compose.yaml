@@ -34,3 +34,17 @@ services:
       MYSQL_DATABASE: business_db 
       MYSQL_USER: test 
       MYSQL_PASSWORD: test 
+  node:
+    build:
+      context: ./docker/node/. 
+    volumes:
+      - ./code/node:/usr/src/app
+    ports:
+       - 50000:50000
+    depends_on:
+      - mysql
+    environment:
+      # has to be the same as on right side of 'ports'
+      PORT: 50000
+      HOST: '0.0.0.0'
+      MYSQL_DATABASE: business_db 
