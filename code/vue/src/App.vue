@@ -1,17 +1,40 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Vue.js App"/>
+    <section class="ftco-counter ftco-bg-dark img" id="section-counter" data-stellar-background-ratio="0.5">
+      <h1>Users</h1>
+      <div class="list-item-wrapper" v-on:click="selectUser(user.UserID)" v-bind:key="user.UserID" v-for="user in users">
+        <User v-bind:user="user"/>
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import User from './components/User.vue'
+
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    User
+  },
+  methods: {
+    selectUser: function(id){
+      alert(id);
+    }
+  },
+  mounted() {
+    fetch(this.endpoint + "/Users")
+      .then(response => response.json())
+      .then((data) => {
+        this.users = data;
+      })
+  },
+  data() {
+    return {
+      endpoint: "http://localhost:50000",
+      users: []
+    }
   }
 }
 </script>
@@ -22,7 +45,14 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #ffffff;
   margin-top: 60px;
+}
+h1 {
+  color: white;
+}
+.list-item-wrapper {
+  width: 50%;
+  margin: 0 auto;
 }
 </style>
