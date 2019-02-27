@@ -1,8 +1,15 @@
 <template>
   <div>
     <h1>Users</h1>
+    <div class="list-item-wrapper">
+      <div class="grid-header-cell" style="width: 30%">Username</div>
+      <div class="grid-header-cell" style="width: 40%">Email</div>
+      <div class="grid-header-cell" style="width: 10%">Edit</div>
+      <div class="grid-header-cell" style="width: 10%">Delete</div>
+      <div class="grid-header-cell" style="width: 10%">Select</div>
+    </div>
     <div class="list-item-wrapper" v-bind:key="user.UserID" v-for="user in users">
-      <User v-bind:user="user"/>
+      <User v-on:select="selectUser" v-bind:user="user"/>
     </div>
     <div class="list-item-wrapper">
       <button v-on:click="postUser" style="margin-top: 3px; float:left">Add User</button>
@@ -29,7 +36,11 @@ export default {
   },
   methods: {
     selectUser: function(user){
-      alert(user.UserID);
+      if(this.selected)
+        this.selected.UserSelected = false;
+      this.selected = this.users[indexById(this.users,user.UserID,"UserID")];
+      this.selected.UserSelected = true;
+      this.$parent.selectUser(this.selected);
     },
     editUser: function(user){
       fetch(this.endpoint + "/Users", { 
@@ -71,6 +82,7 @@ export default {
         })
         .then(res => res.json())
         .then((user) => {
+          user.UserSelected = false;
           this.users.push(user);
         });
     }
@@ -79,12 +91,16 @@ export default {
     fetch(this.endpoint + "/Users")
       .then(response => response.json())
       .then((data) => {
+        var i;
+        for(i = 0; i < data.length; i++)
+          data[i].UserSelected = false;
         this.users = data;
       })
   },
   data() {
     return {
       height: 0,
+      selected: null,
       users: []
     }
   }
@@ -99,4 +115,23 @@ h1 {
   width: 50%;
   margin: 0 auto;
 }
+button {
+  background: transparent;
+  color: lightgray;
+  border: none;
+}
+button:hover {
+  background: darkslategray;
+}
+input {
+  background: transparent;
+  color: lightgray;
+  float: left;
+  border: none;
+}
+.grid-header-cell {
+  font-weight: bold;
+  float: left;
+}
+
 </style>

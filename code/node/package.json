@@ -8,8 +8,9 @@
 		"start": "nodemon server.js"
 	},
 	"dependencies": {
+		"dateformat": "^3.0.3",
 		"express": "^4.16.1",
-		"nodemon": "latest",
-		"mysql": "latest"
+		"mysql": "latest",
+		"nodemon": "latest"
 	}
 }
