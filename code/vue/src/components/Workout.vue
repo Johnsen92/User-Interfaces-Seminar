@@ -49,15 +49,32 @@ export default {
   /* border: solid 1px white; */
   float: left;
   padding: 3px;
+  color: darkslategray;
 }
 .grid-cell-edit {
-  background: darkslategray;
+  background: gray;
 }
 .grid-row-selected {
-  background: darkslategray;
+  background: gray;
+}
+button {
+  background: transparent;
+  color: darkslategray;
+}
+button:hover {
+  background: gray;
 }
 input {
+  background: transparent;
+  color: darkslategray;
+  float: left;
   text-align: center;
+  border: none;
+}
+select {
+  color: darkslategray;
+  border: none;
+  background: transparent;
 }
 </style>
 

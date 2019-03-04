@@ -115,6 +115,10 @@ h1 {
   width: 50%;
   margin: 0 auto;
 }
+.grid-header-cell {
+  font-weight: bold;
+  float: left;
+}
 button {
   background: transparent;
   color: lightgray;
@@ -122,16 +126,6 @@ button {
 }
 button:hover {
   background: darkslategray;
-}
-input {
-  background: transparent;
-  color: lightgray;
-  float: left;
-  border: none;
-}
-.grid-header-cell {
-  font-weight: bold;
-  float: left;
 }
 
 </style>

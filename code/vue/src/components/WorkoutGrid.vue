@@ -125,9 +125,9 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 h1 {
-  color: lightgray;;
+  color: darkslategray;;
 }
 .list-item-wrapper {
   width: 70%;
@@ -135,26 +135,15 @@ h1 {
 }
 button {
   background: transparent;
-  color: lightgray;
-  /* border: none; */
+  color: darkslategray;
 }
 button:hover {
-  background: darkslategray;
-}
-input {
-  background: transparent;
-  color: lightgray;
-  float: left;
-  /* border: none; */
-}
-select {
-  color: lightgray;
-  border: none;
-  background: transparent;
+  background: gray;
 }
 .grid-header-cell {
   font-weight: bold;
   float: left;
+  color: darkslategray;
 }
 
 </style>

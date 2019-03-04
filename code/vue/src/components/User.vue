@@ -49,5 +49,19 @@ export default {
 .grid-row-selected {
   background: darkslategray;
 }
+button {
+  background: transparent;
+  color: lightgray;
+  border: none;
+}
+button:hover {
+  background: darkslategray;
+}
+input {
+  background: transparent;
+  color: lightgray;
+  float: left;
+  border: none;
+}
 </style>
 

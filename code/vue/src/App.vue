@@ -3,7 +3,7 @@
     <section class="ftco-counter ftco-bg-dark img" v-bind:style="{ height: height + 'px' }" id="section-counter" data-stellar-background-ratio="0.5">
       <UserGrid v-bind:endpoint="endpoint" />
     </section>
-    <section  class="ftco-counter ftco-bg-dark img" style="height: 500px; padding-top: 0px" v-if="selectedUser">
+    <section  class="ftco-counter img" style="height: 500px; padding-top: 0px" v-if="selectedUser">
       <WorkoutGrid v-bind:endpoint="endpoint" v-bind:user="selectedUser"/>
     </section>
   </div>
