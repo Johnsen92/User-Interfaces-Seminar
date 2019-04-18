@@ -24,6 +24,7 @@ export default {
       editing: false
     }
   },
+  // Grid Functions
   methods: {
     edit: function(){
       this.editing = true;
