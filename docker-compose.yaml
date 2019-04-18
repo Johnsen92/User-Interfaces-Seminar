@@ -1,25 +1,6 @@
 version: '3'
 #version: '3.4'
 services:
-  web:
-    image: nginx:latest
-    ports:
-      - "8080:80"
-    volumes:
-      - ./code:/code
-      - ./site.conf:/etc/nginx/conf.d/default.conf
-    depends_on:
-      - php
-    container_name: vue-web
-  php:
-    build:
-      context: ./docker/php/. 
-    volumes:
-      - ./code:/code
-      - ./docker/php/www.conf:/usr/local/etc/php-fpm.d/www.conf
-    environment:
-        MYSQL_USER: test 
-        MYSQL_PASSWORD: test 
   mysql:
     image: mysql:5.7
     ports:
@@ -27,8 +8,6 @@ services:
     volumes:
       - ./database:/docker-entrypoint-initdb.d
       - ./datadir:/var/lib/mysql
-    depends_on:
-      - php
     environment:
       MYSQL_ROOT_PASSWORD: test 
       MYSQL_DATABASE: business_db 
@@ -53,6 +32,8 @@ services:
       context: ./code/vue/.
     ports:
       - 8081:8080
+    depends_on:
+      - node
     volumes:
       - ./code/vue:/app
     stdin_open: true
