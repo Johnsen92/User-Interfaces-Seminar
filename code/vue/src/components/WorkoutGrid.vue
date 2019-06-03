@@ -89,7 +89,6 @@ export default {
         .then(res => res.json())
         .then((workout) => {
           workout.WorkoutSelected = false;
-          console.log(workout);
           this.workouts.push(workout);
         });
     }

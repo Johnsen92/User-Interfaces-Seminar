@@ -15,7 +15,7 @@ services:
       MYSQL_PASSWORD: test 
   node:
     build:
-      context: ./docker/node/. 
+      context: ./code/node/. 
     volumes:
       - ./code/node:/usr/src/app
     ports:
