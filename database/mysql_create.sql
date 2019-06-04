@@ -56,9 +56,10 @@ ALTER TABLE `workoutlog` ADD CONSTRAINT `workoutlog_fk1` FOREIGN KEY (`ExerciseI
 ALTER TABLE `exercise` ADD CONSTRAINT `Exercise_fk0` FOREIGN KEY (`UserID`) REFERENCES `user` (`UserID`);
 
 
+INSERT INTO `user` (UserName, UserMail, UserPassword, UserSalt) VALUES ('Jonas', 'jonas.ferdigg@gmail.com', '$1$2GHwXknt$zmhhpWFT124imxu8erC5f0', '');
 INSERT INTO `user` (UserName, UserMail, UserPassword, UserSalt) VALUES ('Consti', 'Constantin.Schieber@outlook.com', '$1$2GHwXknt$zmhhpWFT124imxu8erC5f0', '');
-
 INSERT INTO `user` (UserName, UserMail, UserPassword, UserSalt) VALUES ('Test', 'Test@outlook.com', '$1$2QcTQNsy$jzgkW.mb1ueLQ9wfyGpsj/', '');
+INSERT INTO `user` (UserName, UserMail, UserPassword, UserSalt) VALUES ('Elon', 'elon@tesla.ceo', '$1$2QcTQNsy$jzgkW.mb1ueLQ9wfyGpsj/', '');
 
 INSERT INTO `device` (Location, UserID) VALUES ('Testloc1', '1');
 INSERT INTO `device` (Location, UserID) VALUES ('Testloc2', '1');
@@ -66,8 +67,11 @@ INSERT INTO `device` (Location, UserID) VALUES ('Testloc3', '1');
 
 INSERT INTO `exercise` (UserID, ExerciseName, ExerciseType) VALUES ('1', 'Squat', '0');
 INSERT INTO `exercise` (UserID, ExerciseName, ExerciseType) VALUES ('1', 'Bench', '0');
-INSERT INTO `exercise` (UserID, ExerciseName, ExerciseType) VALUES ('2', 'Squat', '0');
-INSERT INTO `exercise` (UserID, ExerciseName, ExerciseType) VALUES ('2', 'Bench', '0');
+INSERT INTO `exercise` (UserID, ExerciseName, ExerciseType) VALUES ('2', 'Plank', '0');
+INSERT INTO `exercise` (UserID, ExerciseName, ExerciseType) VALUES ('2', 'Kettlebell', '0');
+INSERT INTO `exercise` (UserID, ExerciseName, ExerciseType) VALUES ('4', 'Founding SpaceX', '0');
+INSERT INTO `exercise` (UserID, ExerciseName, ExerciseType) VALUES ('4', 'Founding The Boring Company', '0');
+INSERT INTO `exercise` (UserID, ExerciseName, ExerciseType) VALUES ('4', 'Shooting a Tesla into Space', '0');
 
 INSERT INTO `workoutlog` (UserID, SessionID, ExerciseID, Reps, Weight, RPE, Timestamp) VALUES ('1', '1', '1', 5, 80, 8, '1546168656');
 INSERT INTO `workoutlog` (UserID, SessionID, ExerciseID, Reps, Weight, RPE, Timestamp) VALUES ('1', '1', '1', 5, 80, 8, '1546168756');
@@ -84,3 +88,7 @@ INSERT INTO `workoutlog` (UserID, SessionID, ExerciseID, Reps, Weight, RPE, Time
 INSERT INTO `workoutlog` (UserID, SessionID, ExerciseID, Reps, Weight, RPE, Timestamp) VALUES ('2', '1', '2', 5, 50, 8, '1546168656');
 INSERT INTO `workoutlog` (UserID, SessionID, ExerciseID, Reps, Weight, RPE, Timestamp) VALUES ('2', '1', '2', 5, 50, 8, '1546168756');
 INSERT INTO `workoutlog` (UserID, SessionID, ExerciseID, Reps, Weight, RPE, Timestamp) VALUES ('2', '1', '2', 5, 50, 8, '1546168656');
+
+INSERT INTO `workoutlog` (UserID, SessionID, ExerciseID, Reps, Weight, RPE, Timestamp) VALUES ('4', '2', '1', 5, 80, 8, '1546169756');
+INSERT INTO `workoutlog` (UserID, SessionID, ExerciseID, Reps, Weight, RPE, Timestamp) VALUES ('4', '2', '2', 5, 80, 8, '1546169856');
+INSERT INTO `workoutlog` (UserID, SessionID, ExerciseID, Reps, Weight, RPE, Timestamp) VALUES ('4', '1', '3', 5, 50, 8, '1546168656');
