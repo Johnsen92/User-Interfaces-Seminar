@@ -50,4 +50,3 @@ And for Node.js
 export NVM_DIR="/home/consti/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 ```
-
